@@ -1,0 +1,15 @@
+;; cluster S0 [ score:FS = -33.5545839603355 ] [ score:FT = -34.46264569906517 ] [ score:MS = -34.1244684138484 ] [ score:MT = -34.76142146642053 ] 
+showName 1 0 818 F S U S0
+showName 1 2039 233 F S U S0
+showName 1 2451 212 F S U S0
+;; cluster S1 [ score:FS = -33.05424826850687 ] [ score:FT = -33.92080050045348 ] [ score:MS = -33.42311336149102 ] [ score:MT = -34.182252614053645 ] 
+showName 1 818 1221 F S U S1
+showName 1 2663 879 F S U S1
+showName 1 5921 1003 F S U S1
+;; cluster S5 [ merge HCLR 0 = S5 in S6 with 1.4822957658324687 ] [ score:FS = -33.99653836383153 ] [ score:FT = -34.614542481186085 ] [ score:MS = -34.13104036298271 ] [ score:MT = -34.664558427045364 ] 
+showName 1 3542 247 F S U S5
+showName 1 3907 871 F S U S5
+showName 1 4778 211 F S U S5
+showName 1 5033 193 F S U S5
+showName 1 5226 695 F S U S5
+showName 1 6973 344 F S U S5

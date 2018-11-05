@@ -1,0 +1,11 @@
+;; cluster S0 [ score:FS = -33.71114534451636 ] [ score:FT = -34.36269670947721 ] [ score:MS = -33.95106023926101 ] [ score:MT = -34.662025699824305 ] 
+showName 1 313 231 F S U S0
+;; cluster S1 [ score:FS = -33.64416240794122 ] [ score:FT = -34.303096443895214 ] [ score:MS = -33.78528986702701 ] [ score:MT = -34.36293379826717 ] 
+showName 1 740 403 F S U S1
+showName 1 1966 164 F S U S1
+showName 1 2155 208 F S U S1
+showName 1 2848 291 F S U S1
+showName 1 3249 403 F S U S1
+;; cluster S3 [ score:FS = -33.8828305702173 ] [ score:FT = -34.49836972807096 ] [ score:MS = -34.02662151818343 ] [ score:MT = -34.7831637986509 ] 
+showName 1 1470 496 F S U S3
+showName 1 2363 485 F S U S3

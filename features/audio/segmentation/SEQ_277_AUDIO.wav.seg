@@ -1,0 +1,11 @@
+;; cluster S0 [ score:FS = -32.88547694669885 ] [ score:FT = -33.45368962704578 ] [ score:MS = -32.45613363793638 ] [ score:MT = -33.12914255055256 ] 
+showName 1 0 338 M S U S0
+showName 1 338 1188 M S U S0
+showName 1 1526 1084 M S U S0
+showName 1 2610 1281 M S U S0
+showName 1 3891 1637 M S U S0
+showName 1 5528 377 M S U S0
+showName 1 5986 600 M S U S0
+;; cluster S12 [ score:FS = -33.18069320041069 ] [ score:FT = -33.7261861284186 ] [ score:MS = -33.33486988539597 ] [ score:MT = -33.91634867653473 ] 
+showName 1 6586 668 F S U S12
+showName 1 7303 158 F S U S12

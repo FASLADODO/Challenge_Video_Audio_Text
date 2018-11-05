@@ -1,0 +1,39 @@
+;; cluster S0 [ score:FS = -33.550595448869664 ] [ score:FT = -34.21735035515895 ] [ score:MS = -34.144501721634185 ] [ score:MT = -34.74382364649968 ] 
+showName 1 166 343 F S U S0
+;; cluster S10 [ score:FS = -32.90604523512894 ] [ score:FT = -33.58290388316677 ] [ score:MS = -32.508020584524424 ] [ score:MT = -33.14900180675343 ] 
+showName 1 5591 535 M S U S10
+showName 1 7186 488 M S U S10
+;; cluster S11 [ score:FS = -33.19061597869026 ] [ score:FT = -33.88102652623104 ] [ score:MS = -32.963149798664986 ] [ score:MT = -33.63650469505107 ] 
+showName 1 3093 1650 M S U S11
+showName 1 5140 451 M S U S11
+showName 1 6126 486 M S U S11
+showName 1 13777 776 M S U S11
+;; cluster S12 [ score:FS = -33.028884824556926 ] [ score:FT = -33.747082483947224 ] [ score:MS = -32.974228585172774 ] [ score:MT = -33.61431607013128 ] 
+showName 1 6612 574 M S U S12
+;; cluster S14 [ score:FS = -33.27262647400025 ] [ score:FT = -33.83229897544548 ] [ score:MS = -32.9454642850244 ] [ score:MT = -33.442071254764215 ] 
+showName 1 7674 947 M S U S14
+showName 1 10215 1278 M S U S14
+showName 1 12897 880 M S U S14
+showName 1 14553 650 M S U S14
+;; cluster S16 [ score:FS = -32.93371364593651 ] [ score:FT = -33.29754434298017 ] [ score:MS = -33.346808138403006 ] [ score:MT = -33.574276891030806 ] 
+showName 1 2320 442 F S U S16
+showName 1 9071 589 F S U S16
+showName 1 9665 550 F S U S16
+;; cluster S19 [ score:FS = -32.56666468421742 ] [ score:FT = -33.36792565680186 ] [ score:MS = -34.08835071312519 ] [ score:MT = -34.558936359997006 ] 
+showName 1 11493 669 F S U S19
+;; cluster S2 [ score:FS = -33.50570755891495 ] [ score:FT = -34.160887817432325 ] [ score:MS = -33.12523780797111 ] [ score:MT = -33.656421910554016 ] 
+showName 1 530 239 M S U S2
+showName 1 844 313 M S U S2
+showName 1 4785 355 M S U S2
+;; cluster S20 [ score:FS = -33.11164151748124 ] [ score:FT = -33.6443962679726 ] [ score:MS = -32.69403607541917 ] [ score:MT = -33.27701538555554 ] 
+showName 1 12162 578 M S U S20
+;; cluster S24 [ score:FS = -33.286742895436205 ] [ score:FT = -33.721719465287464 ] [ score:MS = -33.415922218441935 ] [ score:MT = -33.82484381102057 ] 
+showName 1 15203 336 F S U S24
+showName 1 15553 175 F S U S24
+showName 1 15762 185 F S U S24
+showName 1 15961 176 F S U S24
+showName 1 16162 192 F S U S24
+;; cluster S25 [ score:FS = -33.95469080466344 ] [ score:FT = -34.5495816899539 ] [ score:MS = -34.10317749739296 ] [ score:MT = -34.49236817461079 ] 
+showName 1 16375 490 F S U S25
+;; cluster S3 [ score:FS = -33.38222345815982 ] [ score:FT = -34.15176859112709 ] [ score:MS = -33.66230306070083 ] [ score:MT = -34.283392362208126 ] 
+showName 1 1157 220 F S U S3
