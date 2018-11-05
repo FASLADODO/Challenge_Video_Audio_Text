@@ -39,7 +39,7 @@ class GetText:
 
 
 if __name__ == '__main__':
-    list_path = [f'/home/mickael/Documents/challenge_son_vidéo_texte/data/text/{f}'for f in os.listdir('/home/mickael/Documents/challenge_son_vidéo_texte/data/text/')]
+    list_path = [f'/home/mickael/Documents/Challenge_Video_Audio_Text/data/text/{f}'for f in os.listdir('/home/mickael/Documents/challenge_son_vidéo_texte/data/text/')]
     list_path = [x for x in list_path if x[-4:]=='.xml']
-    test = GetText(list_path, '/home/mickael/Documents/challenge_son_vidéo_texte/features/text/sequence_text.csv')
+    test = GetText(list_path, '/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/sequence_text.csv')
 test.generate_dataframe()
