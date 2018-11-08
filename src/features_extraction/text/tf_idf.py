@@ -11,7 +11,7 @@ replique = False
 
 data = pd.read_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/sequence_text.csv', sep='§')
 if replique == False:
-    data = data.groupby(['Sequence'])['Text'].sum()
+    data = data.groupby(['Sequence'])['Text'].sum() # Découper par séquence ou réplique
     data = data.reset_index()
 
 
@@ -35,3 +35,4 @@ if replique:
     data.to_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/tfidf_replique.csv',index=False,sep='§')
 else: 
     data.to_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/tfidf_doc.csv',index=False,sep='§')
+

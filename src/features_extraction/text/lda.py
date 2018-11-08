@@ -10,8 +10,6 @@
 # Le modèle ajusté peut également être utilisé pour réduire la dimensionnalité de l'entrée 
 # en la projetant dans les directions les plus discriminantes.
 
-
-
 import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation
 
