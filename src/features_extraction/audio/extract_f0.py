@@ -16,12 +16,12 @@ f0_files = sorted([file for file in os.listdir(path_f0) if file.split('.')[-1] =
 
 f0 = [x for x in pd.read_csv(path_f0 + f0_files[0], sep='\n').values]
 
-f0 = np.array(f0)[:, 0]
-print(f0.shape)
-b, a = signal.butter(3, 0.05)
-f0_filt = signal.filtfilt(b, a, f0)
+# f0 = np.array(f0)[:, 0]
+# print(f0.shape)
+# b, a = signal.butter(3, 0.05)
+# f0_filt = signal.filtfilt(b, a, f0)
 
-f0_filt = [1 if x > 10 else 0 for x in f0_filt]
+# f0_filt = [1 if x > 10 else 0 for x in f0_filt]
 
 time = np.cumsum([0.01]*len(f0))
 
