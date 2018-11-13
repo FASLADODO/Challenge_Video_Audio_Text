@@ -31,6 +31,7 @@ data = data.reset_index()
 
 data['Text'] = [x.lower() for x in data['Text']]
 
+#data['Text'] = [x.lower() for x in data['Text']]
 stop = set(stopwords.words('french'))
 stop.update(['.', ',', '"', "'", '?', '!', ':',
                    ';', '(', ')', '[', ']', '{', '}','-','...', '..', '«', '»' ,"'", "’", "``", "''",

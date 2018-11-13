@@ -53,11 +53,11 @@ svd = svd.add_prefix(f'Svd_')
 #plt.scatter(svd['Svd_0'], svd['Svd_1'], c=cluster, s=50, cmap='viridis')
 #plt.show()
 
-#plot_cluster(svd[['Svd_0','Svd_1']].values, data['Sequence'],cluster.values,'/home/mickael/Documents/Challenge_Video_Audio_Text/result/plot_cluster_tfidf.html')
-f.savefig("/home/mickael/Documents/Challenge_Video_Audio_Text/result/kmeans_tfidf_2.png", bbox_inches='tight')
+plot_cluster(svd[['Svd_0','Svd_1']].values, data['Sequence'],cluster.values,'/home/mickael/Documents/Challenge_Video_Audio_Text/result/plot_cluster_tfidf.html')
+#f.savefig("/home/mickael/Documents/Challenge_Video_Audio_Text/result/kmeans_tfidf_2.png", bbox_inches='tight')
 
 """ Calcul du score avec silhouette // k=2 le mieux pour chaque """
-best_k(data.drop(['Sequence'], axis='columns'), range_min = 20, verbose = True)
+#best_k(data.drop(['Sequence'], axis='columns'), range_min = 20, verbose = True)
 
 
 # print(data.head())

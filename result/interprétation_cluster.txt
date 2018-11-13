@@ -1,0 +1,164 @@
+
+Code pour évaluation des clusters
+
+Créer un fichier pour chaque cluster : 
+ecrire dans un fichier pour voir se que j'observe sur mes clusters
+
+wordnet
+francais -> trad en anglais (avec les sous-titres)
+
+
+
+Sentiment :
+positivité,joie,peur,tristesse,fâché,surprise,dégoûter
+
+
+Cluster de sentiement : 
+
+droite négatif, sinistre : violent, meurtre, vol, mort, triste.
+celle du bas, monologue, une lettre négatif
+En haut, un est très négatif, beaucoup de mot qui font mal
+mais celui juste en dessous, seulement 2-3 mots négatifs
+
+A droite mais à l'extrémité gauche : seulement quelques mots négatif mais très léger (exemple : mauvais, tué son frere). seq 34
+
+
+
+Gauche : humour, drole, heureux, 
+3 vidéos neutres 
+
+
+
+
+
+cluster nmf :
+
+point rouge :
+exemple d'un sujet : 
+amélie poulain
+77 : Au Passé : sa parle tout du long sur les tranchées, comment s'est passé la guerre (la tranchée des boshs)
+291 : Au passé : sa parle de 2 jeunes amis pendant des inondations
+296 : Au passé : un monologue sur une machine à coudre et des vieilles femmes
+243 : encore amélie poulain : passé, on parle de son frère mort
+303 : encore la vieille femme : parle d'un homme au passé qui a eu le sida (insoignable) : honte, 1989 : maladie honteuse, jack demi, accompagné jack le plus longtemps possible en tourment
+191 vielle femme parle encore de jack au passé de sa mort
+153 : encore la vielle femme avec jack
+172 : encore jack : remember du passé, parle en plus de 2 jeunes personnes
+078 : un homme et 2 jeunes femmes qui parlent d'argent, d'âge, film vieux, langage de l'époque en franc.
+065 : Amélie poulain :  comme c'est une enquête, sa parle encore de différentes personnes au passé, valentina.
+
+220 - 184 - 179 : regroupement de 3 vidéos qui parlent du passé, 2 avec la vieille dame et 1 avec amélie poulain
+
+
+
+37 - 79 - 199 - 102 : pas grand chose à voir
+une pareil qu'en dessous
+entre les rouges et blanc :
+98 : on s'écarte un peu d'un sujet spécifique, depardieu rédige une lettre, l'autre parle d'une recette de pain...
+
+
+sa parle de sujet par exemple :
+HORIZONTAL
+point blanc : les choristes, renvoie de jugno sujet son à propos des enfants, le directeur réprimande jugno pour l'incendie pendant qu'il était partie avec les enfants.
+278 : connais pas le film, mais on est dans de la réprimande comme dans les choristes, conflie par téléphone entre 2 interlocuteurs.
+026 : discussion entre les 2 interlocuteurs, bourville et louis de funes, dispute entre les 2 interlocuteurs, car bourville est fatigués, louis de funès s'énervent mais gentiment.
+013 : encore Louis de funès et bourville, ils se disputent mais de façon drôle à la louis de funès. Discussion un peu ardue.
+240 :  intouchable quand il veut faire signer ses ascédics, terme un peux moins crue qu'avec funès et bourville mais dans le même thème.
+011 : dans le même thème intouchable, même discussion entre omar Sy et la fille de l'handicapé.
+042 : encore intouchable, la scène de voiture.
+229 : intouchable, la scène où ils discutent sur son embauche, assez drôle.
+
+164 : Discussion dans qu'est ce qu'on a fait au bon dieu entre les 2 familles un peu tendus.
+157 : sujet un peu différents, les deux femmes parlent d'hommes et de problème qu'ils pourront avoir dans le futur, moins dans le thème drôle mais on s'y rapproche quelques fois
+
+
+266 : on s'écarte un peu de l'extrémité droite
+qu'est ce qu'on a fait au bond dieu, lorsqu'il veut présenter Charles
+humour mais un peu neutre moins qu'avant
+
+
+276 Au milieu du Cluster : discussion entre un père et sa fille possessif tous se passe bien 'oui papa :/'
+30 : just à coté, film pas du tous dans le même thème mais la scène possède exactment les même mots, parfait 'jeune fille', 'sympathique', 'mignonne
+007 : scène d'amélie poulain mais on parle d'une jeune fille, donc dans le meme thème.
+
+
+
+134 : Cyranno, parle plutôt d'amour
+295 : deux vidéo qui parlent d'une lettre d'amour pour roxanne qui se trouvent au même endroit.
+Film Ambigu : Cyranno de bargerac : étant donné l'époque du film et du langage soutenu et impersonnel, il rentre dans tous les thèmes, il n'a pas de thème précis.
+
+
+
+
+Moreno avait dit de pas regarder mais 2 mais regarder lorsqu'il y avait le pic de l'évolution
+CLUSTER LDA:
+
+# Il s’agit d’expliquer et de prédire l’appartenance d’un individu à une classe (groupe) prédéfinie 
+# à partir de ses caractéristiques mesurées à l’aide de variables prédictives.
+
+A gauche de la LDA
+015 : discussion entre depardieu et l'autre, pas de terme significatif,  "Il n'y a pas de sable mouvant dans cette région".
+304 : même style qu'au dessus, du négatif mais de façon très faible.
+118 : similaire, neutralité.
+128 : monologue sur une famille, neutre
+229 : pas, problème sinon c'est neutre
+058 : neutre
+
+beige:
+271 : bourville et funès
+124 : 
+
+
+
+extreme blanc : souvenir : parle de la mer de peche, de filet, de barque, remailler. avec 3 hommes.
+Mais à coté, on a le souvenir de 4 morts pendant la guerre
+souvenir de la vieille femme qui parle tous le temps, on parle de 3 soeur, elles racontent sa vie.
+
+
+y'a un groupe qui parle de ça : 
+139 : Bruler, indiens, sinistré, foutue
+011 : foutre en l'air, c'est intouchable mais il y a des mots qui permettent de dire qu'il y a des pbs.
+204 : mort, forêt vierge, 
+39 : tuer, fou, tue, 
+230 : survivant
+
+
+135 famille : 
+129 : Cyranno car tous le monde est de la même famille.
+
+190 - 25 : racisme qu'est-ce qu'on fait au bon dieu.
+
+193 : Cyrano, énervé, l'autre se moque de son nez / pif
+
+279 - 120 : riches / pauvres avec de funès / 
+
+Pour repérer des termes similaires dans des vidéos différents, c'est très bien
+
+
+
+
+
+par opposé extrème orange : 015 discussion entre 2 personnes sables mouvant, terrain dérobe sous mes pieds, terrain dur, meuble.
+
+Extrème Nord Est le point : parle de plusieurs sujets mais  ppelement de poilus pendant la guerre, de ravitaillement.
+
+Extreme Sud : vieile femme qui parle d'avortement, de signature, des femmes, les droits des femmes, des travailleurs
+
+
+cluster TFIDF : 
+
+
+191 - 154 - 296 - 128 : 
+
+
+
+
+
+
+
+
+
+
+
+
+

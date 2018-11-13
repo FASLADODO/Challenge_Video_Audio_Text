@@ -26,6 +26,7 @@ data = pd.read_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/features/
 data = data.groupby(['Sequence'])['Text'].sum() # Découper par séquence ou réplique
 data = data.reset_index()
 
+#data['Text'] = [x.lower() for x in data['Text']]
 stop = set(stopwords.words('french'))
 stop.update(['.', ',', '"', "'", '?', '!', ':',
                    ';', '(', ')', '[', ']', '{', '}','-','...', '..', '«', '»' ,"'", "’", "``", "''",
