@@ -8,9 +8,8 @@ def create_dict_LIUM(files):
 
     dict_caract = {}
 
-    for filename in files:
-        file = path_segmentation + filename
-        name_seq = filename.split('.')[0]
+    for file in files:
+        name_seq = file.split('/')[-1].split('.')[0]
         dict_caract[name_seq] = {}
 
         with open(file, 'r') as f:
@@ -30,21 +29,22 @@ def create_dict_LIUM(files):
 
 def features_LIUM(path_segmentation):
 
-    files = sorted([file for file in os.listdir(path_segmentation) if file.split('.')[-1] == 'seg'])
+    files = sorted([path_segmentation + file for file in os.listdir(path_segmentation) if file.split('.')[-1] == 'seg'])
     dict_lium = create_dict_LIUM(files)
     # print(dict_lium)
     dict_features = {}
 
     #print(dict_lium[files[0]]['S0']['gender'])
-    for filename in files:
-        name_seq = filename.split('.')[0]
+    for file in files:
+        name_seq = file.split('/')[-1].split('.')[0]
         nb_locutors = len(dict_lium[name_seq])
         nb_men = sum([1 if loc['gender'] == 'M' else 0 for loc in dict_lium[name_seq].values()])
         # nb_men = ([print(loc) for loc in dict_lium[name_seq].values()])
         # print(nb_men)
         dict_features[name_seq] = {'nb_locutors':nb_locutors, 'ratio_HF':nb_men/nb_locutors}
     
-    return pd.DataFrame.from_dict(dict_features, orient='index')
+    df = pd.DataFrame.from_dict(dict_features, orient='index')
+    return df
 
 
 if __name__ == '__main__':
