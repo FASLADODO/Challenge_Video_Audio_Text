@@ -5,6 +5,7 @@ from scipy.io.wavfile import read
 from nrj import log_energie
 import matplotlib.pyplot as plt
 import numpy as np
+from scipy.signal import filtfilt, butter
 from scipy.stats import skew, kurtosis
 
 def HOS(X):
@@ -17,7 +18,7 @@ def HOS(X):
 def gaussian(x, mu, sig):
         return 1./(np.sqrt(2.*np.pi)*sig)*np.exp(-np.power((x - mu)/sig, 2.)/2)
 
-def VAD(nrj, plot=False):
+def VAD(nrj, time_nrj, plot=False):
 
     if type(nrj) == list:
         nrj = np.array(nrj)
@@ -53,11 +54,27 @@ def VAD(nrj, plot=False):
         ax[1].axhline(thresh, color='k')
         plt.show()
 
+
+    list_times = []
+    i = 0
+    while i < len(nrj) - 1:
+        sub_list = []
+        if nrj[i] > thresh:
+            sub_list.append(time_nrj[i])
+            j = 1
+            while (nrj[i + j] > thresh) and ((i + j + 1) < len(nrj)):
+                j += 1
+            sub_list.append(time_nrj[i + j])
+            i = i + j
+            list_times.append(sub_list)
+        else:
+            i += 1
+
     nrj_filt = [x if x > thresh else np.NaN for x in nrj] 
-    return nrj_filt
+    return nrj_filt, list_times
 
 if __name__ == '__main__':
-    file = 'data/audio/SEQ_258_AUDIO.wav'
+    file = 'data/audio/SEQ_001_AUDIO.wav'
 
     f, y = read(file)
 
@@ -67,11 +84,23 @@ if __name__ == '__main__':
     win = 4096
     step = 2048
 
-    nrj = log_energie(y, f, win=win, step=step)
+    nrj, time_nrj = log_energie(y, f, win=win, step=step)
     nrj = np.array(nrj)
+
+    b, a = butter(3, 0.12)
+    nrj = filtfilt(b, a, nrj)
 
     # nrj = nrj / np.mean(nrj)
 
-    nrj_filt = VAD(nrj, plot=True)
-    # plt.plot(nrj_filt)
-    # plt.show()
+    nrj_filt, time = VAD(nrj, time_nrj, plot=False)
+    
+    plt.plot(time_nrj, nrj_filt)
+    for t in time:
+        plt.axvline(t[0], color='k')
+        plt.axvline(t[1], color='r')
+
+    plt.plot([], [], 'k', label='Début de segment')
+    plt.plot([], [], 'r', label='Fin de segment')
+    plt.legend()
+    plt.show()
+    # print(time)

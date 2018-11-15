@@ -24,13 +24,15 @@ def log_energie(Y, sr, win=512, step=256, plot=False):
         if i+win < N:
             nrj.append(np.log10(np.sum(np.power(Y[i:i+win], 2))))
 
+    time = np.cumsum([step/sr]*len(nrj))
+
     if plot:
         x = np.cumsum([step/sr] * len(nrj))
         plt.figure(1, figsize=(12, 8))
         plt.plot(x, nrj)
         plt.title("Log(Enegie)")
         plt.show()
-    return nrj
+    return nrj, time
 
 if __name__ == '__main__':
     f, Y = read('data/audio/SEQ_001_AUDIO.wav')

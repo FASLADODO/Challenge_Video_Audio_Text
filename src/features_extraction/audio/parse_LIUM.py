@@ -41,7 +41,8 @@ def features_LIUM(path_segmentation):
         nb_men = sum([1 if loc['gender'] == 'M' else 0 for loc in dict_lium[name_seq].values()])
         # nb_men = ([print(loc) for loc in dict_lium[name_seq].values()])
         # print(nb_men)
-        dict_features[name_seq] = {'nb_locutors':nb_locutors, 'ratio_HF':nb_men/nb_locutors}
+        dict_features[name_seq] = {'nb_locutors':nb_locutors,
+                                   'ratio_HF':nb_men/nb_locutors}
     
     df = pd.DataFrame.from_dict(dict_features, orient='index')
     return df
