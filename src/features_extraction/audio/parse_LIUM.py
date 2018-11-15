@@ -9,7 +9,7 @@ def create_dict_LIUM(files):
     dict_caract = {}
 
     for file in files:
-        name_seq = file.split('/')[-1].split('.')[0]
+        name_seq = file.split('/')[-1].split('.')[0][:7]
         dict_caract[name_seq] = {}
 
         with open(file, 'r') as f:
@@ -36,7 +36,7 @@ def features_LIUM(path_segmentation):
 
     #print(dict_lium[files[0]]['S0']['gender'])
     for file in files:
-        name_seq = file.split('/')[-1].split('.')[0]
+        name_seq = file.split('/')[-1].split('.')[0][:7]
         nb_locutors = len(dict_lium[name_seq])
         nb_men = sum([1 if loc['gender'] == 'M' else 0 for loc in dict_lium[name_seq].values()])
         # nb_men = ([print(loc) for loc in dict_lium[name_seq].values()])
@@ -52,5 +52,6 @@ if __name__ == '__main__':
     path_segmentation = 'features/audio/LIUM_segmentation/'
     
     df = features_LIUM(path_segmentation)
+    df.to_csv('features/audio/csv/locutors.csv', sep='§', index_label='Sequence')
     plt.plot(df['nb_locutors'].values, df['ratio_HF'].values, 'ro')
     plt.show()

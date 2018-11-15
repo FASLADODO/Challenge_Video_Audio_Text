@@ -5,7 +5,7 @@ from plotly.offline import download_plotlyjs, plot, iplot
 # Create random data with numpy
 import numpy as np
 
-def plot_cluster(coords, names, labels, name_plot):
+def plot_cluster(coords, names, labels, name_plot, title=None):
     ''' 
     Create a scatter plot
     
@@ -16,6 +16,7 @@ def plot_cluster(coords, names, labels, name_plot):
         names {list} -- list corresponding to the names of the individuals
         labels {type} -- Label of the cluster (an integer like 0 for the first cluster, 1 for the second...)
         name_plot {str} -- name of the html file of the plot
+        title {str} -- title of the graph
     '''
 
     # Create a trace
@@ -36,7 +37,7 @@ def plot_cluster(coords, names, labels, name_plot):
 
     data = [trace]
 
-    layout = dict(title = 'Styled Scatter',
+    layout = dict(title = title,
                     yaxis = dict(zeroline = False),
                     xaxis = dict(zeroline = False)
                     )

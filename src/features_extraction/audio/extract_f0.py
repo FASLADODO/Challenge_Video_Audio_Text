@@ -6,6 +6,7 @@ from nrj import log_energie
 from vocal_activity_detection import VAD
 from scipy.signal import filtfilt, butter
 from Yin import yin
+import pandas as pd
 
 def find_idx_nearest(array, value):
 
@@ -13,14 +14,14 @@ def find_idx_nearest(array, value):
     idx = (np.abs(array - value)).argmin()
     return idx
 
-def extract_f0_speak(time_f0, speak_windows_nrj):
+def extract_time_speak(time, speak_windows_nrj):
     """
     Fonction permettant de transposer les zones de paroles 
-    (calculées à partir de l'énergie) à la fréquence fondamentale    
+    (calculées à partir de l'énergie) à une autre forme (F0, signal initial...)   
     
     Arguments:
-        time_f0 {numpy array} -- Liste contenant le temps (en secondes) 
-        associé à chaque point de la fréquence fondamentale 
+        time {numpy array} -- Liste contenant le temps (en secondes) 
+        associé à chaque point de la fréquence fondamentale
         
         speak_windows_nrj {numpy array} -- tableau contenant les fenêtres de paroles 
         (en secondes) calculées sur l'énergie
@@ -29,7 +30,7 @@ def extract_f0_speak(time_f0, speak_windows_nrj):
     
     Returns:
         {numpy array} -- un tableau de la même forme que speak_windows_nrj mais contenant les index
-        (et non le temps lui-même) du tableau time_f0
+        (et non le temps lui-même) du tableau time
     """
 
     speak_windows_f0 = []
@@ -37,7 +38,7 @@ def extract_f0_speak(time_f0, speak_windows_nrj):
         start = t[0]
         end = t[1]
 
-        speak_windows_f0.append([find_idx_nearest(time_f0, t[0]), find_idx_nearest(time_f0, t[1])])
+        speak_windows_f0.append([find_idx_nearest(time, t[0]), find_idx_nearest(time, t[1])])
     return speak_windows_f0
 
 
@@ -80,21 +81,20 @@ def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
     nrj_filt, speak_windows_nrj = VAD(nrj_bas, time_nrj, plot=False)
 
     if use_yin:
-        f0, _, _, time_f0 = yin.compute_yin(sig, sr, w_len=1024, w_step=512, f0_min=90, f0_max=300, harmo_thresh=0.5)
+        f0, _, _, time_f0 = yin.compute_yin(sig, sr, w_len=512, w_step=256, f0_min=90, f0_max=300, harmo_thresh=0.6)
     else:
         f0 = [float(x) for x in pd.read_csv(file_f0, sep='\n').values]
         time_f0 = np.cumsum([0.01]*len(f0))
 
-    speak_windows_f0 = extract_f0_speak(time_f0, speak_windows_nrj)
+    speak_windows_f0 = extract_time_speak(time_f0, speak_windows_nrj)
 
     f0_speak = [np.array(f0[idx[0]:idx[1]]) for idx in speak_windows_f0]
 
     list_freq = []
     for freq in f0_speak:
         freq = freq[freq != 0]
-        
-        if np.mean(freq)>0:
-            freq /= np.mean(freq)
+        if len(freq) > 0:
+            freq = np.log10(freq/np.mean(freq))
             list_freq.extend(freq)
 
     return list_freq

@@ -9,10 +9,13 @@ from scipy.signal import filtfilt, butter
 from scipy.stats import skew, kurtosis
 
 def HOS(X):
-    mean = np.mean(X)
-    std = np.std(X)
-    skewness = skew(X)
-    kurt = kurtosis(X)
+    try:
+        mean = np.mean(X)
+        std = np.std(X)
+        skewness = skew(X)
+        kurt = kurtosis(X)
+    except:
+        print(X)
     return mean, std, skewness, kurt
 
 def gaussian(x, mu, sig):
@@ -70,7 +73,7 @@ def VAD(nrj, time_nrj, plot=False):
         else:
             i += 1
 
-    nrj_filt = [x if x > thresh else np.NaN for x in nrj] 
+    nrj_filt = np.array([x if x > thresh else np.NaN for x in nrj]) 
     return nrj_filt, list_times
 
 if __name__ == '__main__':
