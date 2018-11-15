@@ -41,14 +41,7 @@ model = KMeans(n_clusters=N_CLUSTERS,random_state=42,n_init=30)
 
 cluster = model.fit_predict(data.drop(['Sequence'],axis = 'columns'))
 
-data['cluster'] = cluster
-
-cluster = pd.Series(cluster)
-cluster.name = 'Cluster'
-
-svd = TruncatedSVD(n_components=2) # dimension trop élevé, du coup, on réduit !
-svd = pd.DataFrame(svd.fit_transform(data.drop(['Sequence','cluster'],axis='columns')))
-svd = svd.add_prefix(f'Svd_')
+data['cluster'] = clusters
 
 #plt.scatter(svd['Svd_0'], svd['Svd_1'], c=cluster, s=50, cmap='viridis')
 #plt.show()

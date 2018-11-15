@@ -36,3 +36,4 @@ plt.show()
 
 plot_cluster(pca[['PCA_0','PCA_1']].values, data['Sequence'],cluster, '/home/mickael/Documents/Challenge_Video_Audio_Text/result/plot_cluster_sentiments.html')
 #f.savefig("/home/mickael/Documents/Challenge_Video_Audio_Text/result/kmeans_sentiments.png", bbox_inches='tight')
+

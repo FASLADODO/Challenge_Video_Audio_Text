@@ -1,4 +1,4 @@
-ssimport codecs
+import codecs
 #import nltk
 #nltk.download()
 import collections

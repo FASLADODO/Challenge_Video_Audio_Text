@@ -50,7 +50,7 @@ if __name__ == '__main__':
 
 
     # Liste qui sauvegardera les valeurs de notre modèle à chaque fold
-    fit_score = [] 
+    fit_score = []
     val_score = []
 
     verbose = False # Si vous voulez des information lors de la periode d'entrainement mettez la valeur à True
