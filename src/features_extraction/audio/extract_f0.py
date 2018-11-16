@@ -101,8 +101,8 @@ def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
 
 if __name__ == '__main__':
 
-    file = 'data/audio/SEQ_001_AUDIO.wav'
-    extract_f0(file)
+    file = 'data/audio/SEQ_011_AUDIO.wav'
+    extract_f0(file, plot=True, use_yin=False)
 
     file = 'data/audio/SEQ_002_AUDIO.wav'
     extract_f0(file)

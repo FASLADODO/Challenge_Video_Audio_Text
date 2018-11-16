@@ -16,7 +16,7 @@ text_norm = pd.DataFrame(normalize(text), index=text.index, columns=text.columns
 print(text_norm.head(1))
 
 
-audio1 =pd.read_csv(path_csv + 'locutors.csv', sep='§', index_col='Sequence', engine='python')
+audio1 = pd.read_csv(path_csv + 'locutors.csv', sep='§', index_col='Sequence', engine='python')
 audio2 = pd.read_csv(path_csv + 'audio_nrj_f0.csv', sep='§', index_col='Sequence', engine='python')
 audio2 = audio2.drop([col for col in audio2.columns if 'skew' in col or 'kurt' in col], axis=1)
 audio = pd.merge(audio1, audio2, right_index=True, left_index=True)

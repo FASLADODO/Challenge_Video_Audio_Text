@@ -1,3 +1,8 @@
+"""
+PAS FINI
+"""
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 from vocal_activity_detection import VAD
@@ -11,15 +16,24 @@ def extract_zcr(y, sr, speak_windows_nrj, win_len=512, step=256):
 
     zcr = zero_crossing_rate(y, frame_length=win_len, hop_length=step).reshape(-1)
     time_zcr = np.cumsum([step/sr]*len(zcr))
-
-    print(zcr.shape)
+    plt.plot(zcr)
 
     time_windows_idx = extract_time_speak(time_zcr, speak_windows_nrj)
 
-    zcr_filt = [np.array(zcr[idx[0]:idx[1]]) for idx in time_windows_idx]
+    zcr_filt = [np.array(zcr[idx1[1]:idx2[0]]) for idx1, idx2 in zip(time_windows_idx[:-1], time_windows_idx[1:])]
+    for t in time_windows_idx:
+        plt.axvline(t[0], color='k')
+        plt.axvline(t[1], color='r')
 
+    plt.plot([], [], 'k', label='Début de segment')
+    plt.plot([], [], 'r', label='Fin de segment')
+    plt.legend()
+    plt.show()
+    # print(zcr_filt)
+    # print('=================')
+    print(np.mean([np.mean(x) for x in zcr_filt]))
 
-file = 'data/audio/SEQ_001_AUDIO.wav'
+file = 'data/audio/SEQ_005_AUDIO.wav'
 sr, sig = read(file)
 sig = sig.astype(np.float64)
 
