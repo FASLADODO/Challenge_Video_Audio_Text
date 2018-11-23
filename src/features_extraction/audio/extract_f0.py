@@ -42,7 +42,7 @@ def extract_time_speak(time, speak_windows_nrj):
     return speak_windows_f0
 
 
-def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
+def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True, plot=False):
     """
     Extraction de la fréquence fondamentale d'un signal audio en la calculant
     uniquement sur les zones de paroles. Cette fréquence est normalisée pour chaque 
@@ -55,8 +55,11 @@ def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
         path_f0 {str} -- dossier où sont stockés les fichier contenant la fréquence
             fondamentale calculée par l'algorithme AMDF (si use_yin = False)   
             (default: {'features/audio/f0/'})
+        
         use_yin {bool} -- Booleen, mettre True si vous voulez utiliser l'algorithme yin
                           Mettre False pour utiliser l'algorithme AMDF (default: {True})
+
+        plot {bool} -- Booleen, mettre True pour afficher la fréquence fondamentale
     
     Returns:
         {numpy array} -- tableau à une dimension contenant la fréquence fondamentale 
@@ -81,10 +84,23 @@ def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
     nrj_filt, speak_windows_nrj = VAD(nrj_bas, time_nrj, plot=False)
 
     if use_yin:
-        f0, _, _, time_f0 = yin.compute_yin(sig, sr, w_len=512, w_step=256, f0_min=90, f0_max=300, harmo_thresh=0.6)
+        f0, _, _, time_f0 = yin.compute_yin(sig, sr, w_len=512, w_step=256, f0_min=70, f0_max=250, harmo_thresh=0.2)
     else:
         f0 = [float(x) for x in pd.read_csv(file_f0, sep='\n').values]
         time_f0 = np.cumsum([0.01]*len(f0))
+
+    if plot:
+        time_sig = np.cumsum([1./sr] * len(sig))
+        fig, ax = plt.subplots(2, 1, figsize=(14, 8))
+        ax[0].plot(time_sig[153000:290000], sig[153000:290000], label='Signal')
+        # ax[1].plot(time_f0[550:1400], f0[550:1400], 'ro', label='Fréquence fondamentale')
+        ax[1].plot(time_f0[950:1800], f0[950:1800], 'ro', label='Fréquence fondamentale')
+        ax[1].set_ylim(5, max(f0)+10)
+        ax[1].set_xlabel('Temps (s)')
+        ax[1].set_ylabel('Fréquence (Hz)')
+        ax[0].legend(loc='upper left')
+        plt.legend(loc='upper left')
+        plt.show()
 
     speak_windows_f0 = extract_time_speak(time_f0, speak_windows_nrj)
 
@@ -97,11 +113,16 @@ def extract_f0(wav_file, path_f0='features/audio/f0/', use_yin=True):
             freq = np.log10(freq/np.mean(freq))
             list_freq.extend(freq)
 
+    test = [l for l in list_freq]
+
+    plt.plot(test)
+    plt.show()
+
     return list_freq
 
 if __name__ == '__main__':
 
-    file = 'data/audio/SEQ_011_AUDIO.wav'
+    file = 'data/audio/SEQ_034_AUDIO.wav'
     extract_f0(file, plot=True, use_yin=False)
 
     file = 'data/audio/SEQ_002_AUDIO.wav'

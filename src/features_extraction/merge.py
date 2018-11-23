@@ -26,7 +26,14 @@ print(audio_norm.head(1))
 
 pca = PCA(n_components=50)
 
-video = pd.read_csv(path_csv + 'df_histo.csv', sep='§', index_col=0, engine='python')
+video1 = pd.read_csv(path_csv + 'df_histo.csv', sep='§', index_col=0, engine='python')
+video1.index = [idx[:7] for idx in video1.index]
+video2 = pd.read_csv(path_csv + 'df_cuts.csv', sep='§', index_col=0, engine='python')
+video2.index = [idx[:7] for idx in video2.index]
+video3 = pd.read_csv(path_csv + 'df_momentum.csv', sep='§', index_col=0, engine='python')
+video3.index = [idx[:7] for idx in video3.index]
+video = pd.merge(video1, video2, right_index=True, left_index=True)
+video = pd.merge(video, video3, right_index=True, left_index=True)
 video.index = [idx[:7] for idx in video.index]
 video_norm = pd.DataFrame(pca.fit_transform(normalize(video)), index=video.index)
 print(video_norm.head(1))
@@ -44,6 +51,6 @@ video_text = pd.merge(video_norm, text_norm, right_index=True, left_index=True)
 clustering(video_text, path + 'video_text.html', nb_cluster=1)
 
 audio_video_text = pd.merge(video_text, audio_norm, right_index=True, left_index=True)
-audio_video_text.to_csv('features/merge/all.csv')
+audio_video_text.to_csv('features/merge/all.csv', sep='§', index_label='Sequence')
 # audio_video_text_norm = pd.DataFrame(normalize(audio_video_text), index=audio_video_text.index, columns=audio_video_text.columns)
 clustering(audio_video_text, path + 'audio_video_text.html', nb_cluster=1)

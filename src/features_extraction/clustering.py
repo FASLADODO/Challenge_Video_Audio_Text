@@ -40,9 +40,9 @@ def clustering(df, file_out, reduce_pca=None, nb_cluster=2):
 if __name__ == '__main__':
     path_csv = 'features/audio/csv/'
 
-    lium = pd.read_csv(path_csv + 'locutors.csv', sep='§', index_col='Sequence')
+    lium = pd.read_csv(path_csv + 'locutors.csv', sep='§', index_col='Sequence', engine='python')
 
-    df_nrj_f0 = pd.read_csv(path_csv + 'audio_nrj_f0.csv', sep='§', index_col='Sequence')
+    df_nrj_f0 = pd.read_csv(path_csv + 'audio_nrj_f0.csv', sep='§', index_col='Sequence', engine='python')
 
     nrj = df_nrj_f0[[col for col in df_nrj_f0.columns if 'nrj' in col]]
     f0 = df_nrj_f0[[col for col in df_nrj_f0.columns if 'f0' in col]]
@@ -50,6 +50,6 @@ if __name__ == '__main__':
     df = pd.merge(lium, df_nrj_f0, left_index=True, right_index=True)
     df = df_nrj_f0
 
-
+    clustering(df, 'result/audio/cluster_all.html', nb_cluster=4)
     print(nrj.head(2))
     print(f0.head(2))

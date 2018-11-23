@@ -21,7 +21,7 @@ def HOS(X):
 def gaussian(x, mu, sig):
         return 1./(np.sqrt(2.*np.pi)*sig)*np.exp(-np.power((x - mu)/sig, 2.)/2)
 
-def VAD(nrj, time_nrj, nrj_n, plot=False):
+def VAD(nrj, time_nrj, plot=False):
 
     if type(nrj) == list:
         nrj = np.array(nrj)
@@ -66,7 +66,7 @@ def VAD(nrj, time_nrj, nrj_n, plot=False):
         g4 = gaussian(x, moy[1], sig[1])
 
         fig, ax = plt.subplots(3, 1, figsize=(14, 12))
-        ax[0].plot(time_nrj, nrj_n, 'r', label='Énergie')
+        # ax[0].plot(time_nrj, nrj_n, 'r', label='Énergie')
         ax[0].plot(time_nrj, nrj, 'b', label='Énergie filtrée')
         ax[0].set_xlabel('Temps (s)')
         ax[0].set_ylim(-5.5, -1)
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
     # nrj = nrj / np.mean(nrj)
 
-    nrj_filt, time = VAD(nrj, time_nrj, nrj_2, plot=True)
+    nrj_filt, time = VAD(nrj, time_nrj, plot=True)
     
     plt.figure(1, figsize=(14, 4))
     plt.plot(time_nrj, nrj_2, label='Énergie')
