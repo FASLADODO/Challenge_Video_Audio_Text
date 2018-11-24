@@ -31,11 +31,11 @@ Gauche : humour, drole, heureux,
 
 cluster nmf :
 
-point beige, les mluc clair:
+point beige, les pluc clair:
 exemple d'un sujet : 
-amélie poulain
+amélie poulain // Les plages d'anniesse
 77 : Au Passé : sa parle tout du long sur les tranchées, comment s'est passé la guerre (la tranchée des boshs)
-291 : Au passé : sa parle de 2 jeunes amis pendant des inondations
+291 (rouge eloigné)  : Au passé : sa parle de 2 jeunes amis pendant des inondations
 296 : Au passé : un monologue sur une machine à coudre et des vieilles femmes
 243 : encore amélie poulain : passé, on parle de son frère mort
 303 : encore la vieille femme : parle d'un homme au passé qui a eu le sida (insoignable) : honte, 1989 : maladie honteuse, jack demi, accompagné jack le plus longtemps possible en tourment
@@ -102,74 +102,6 @@ Film Ambigu : Cyranno de bargerac : étant donné l'époque du film et du langag
 
 
 
-Moreno avait dit de pas regarder mais 2 mais regarder lorsqu'il y avait le pic de l'évolution
-CLUSTER LDA:
-
-# Il s’agit d’expliquer et de prédire l’appartenance d’un individu à une classe (groupe) prédéfinie 
-# à partir de ses caractéristiques mesurées à l’aide de variables prédictives.
-
-A gauche de la LDA
-015 : discussion entre depardieu et l'autre, pas de terme significatif,  "Il n'y a pas de sable mouvant dans cette région".
-304 : même style qu'au dessus, du négatif mais de façon très faible.
-118 : similaire, neutralité.
-128 : monologue sur une famille, neutre
-229 : pas, problème sinon c'est neutre
-058 : neutre
-
-beige:
-271 : bourville et funès
-124 : 
-
-
-
-extreme blanc : souvenir : parle de la mer de peche, de filet, de barque, remailler. avec 3 hommes.
-Mais à coté, on a le souvenir de 4 morts pendant la guerre
-souvenir de la vieille femme qui parle tous le temps, on parle de 3 soeur, elles racontent sa vie.
-
-
-y'a un groupe qui parle de ça : 
-139 : Bruler, indiens, sinistré, foutue
-011 : foutre en l'air, c'est intouchable mais il y a des mots qui permettent de dire qu'il y a des pbs.
-204 : mort, forêt vierge, 
-39 : tuer, fou, tue, 
-230 : survivant
-
-
-135 famille : 
-129 : Cyranno car tous le monde est de la même famille.
-
-190 - 25 : racisme qu'est-ce qu'on fait au bon dieu.
-
-193 : Cyrano, énervé, l'autre se moque de son nez / pif
-
-279 - 120 : riches / pauvres avec de funès / 
-
-Pour repérer des termes similaires dans des vidéos différents, c'est très bien
-
-
-
-
-
-par opposé extrème orange : 015 discussion entre 2 personnes sables mouvant, terrain dérobe sous mes pieds, terrain dur, meuble.
-
-Extrème Nord Est le point : parle de plusieurs sujets mais  ppelement de poilus pendant la guerre, de ravitaillement.
-
-Extreme Sud : vieile femme qui parle d'avortement, de signature, des femmes, les droits des femmes, des travailleurs
-
-
-cluster TFIDF : 
-
-
-191 - 154 - 296 - 128 : 
-
-
-
-
-
-
-
-
-Objectif
 Méthode
 Résultat
 Conclusion
