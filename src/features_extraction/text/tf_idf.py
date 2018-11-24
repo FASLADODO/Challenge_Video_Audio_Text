@@ -1,5 +1,4 @@
 
-# Convertissez une collection de documents bruts en une matrice de fonctionnalités TF-IDF.
 
 import pandas as pd
 import numpy as np

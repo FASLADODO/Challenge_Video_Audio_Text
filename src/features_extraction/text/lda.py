@@ -1,14 +1,4 @@
 
-# Analyse discriminante linéaire (LDA).
-
-# Un classifieur avec une limite de décision linéaire, généré en ajustant les densités conditionnelles 
-# de classe aux données et en utilisant la règle de Bayes.
-
-# Le modèle adapte une densité gaussienne à chaque classe, en supposant que toutes les classes 
-# partagent la même matrice de covariance.
-
-# Le modèle ajusté peut également être utilisé pour réduire la dimensionnalité de l'entrée 
-# en la projetant dans les directions les plus discriminantes.
 
 import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation

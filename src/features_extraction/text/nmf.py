@@ -1,8 +1,3 @@
-# Factorisation de matrice non-négative (NMF)
-
-# Trouvez deux matrices non négatives (W, H) dont le produit se rapproche de la matrice X non négative. 
-# Cette factorisation peut être utilisée par exemple pour la réduction de la dimensionnalité, 
-# la séparation de source ou l'extraction de sujets.
 
 import pandas as pd
 from sklearn.decomposition import NMF

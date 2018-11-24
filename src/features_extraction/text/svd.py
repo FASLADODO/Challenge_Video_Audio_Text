@@ -1,8 +1,4 @@
-# Singular Value Decomposition.
 
-# Factorise la matrice a en deux matrices unitaires U et Vh, et un tableau 1-D de valeurs singulières 
-# (réelles, non négatives) telles que a == U @ S @ Vh, où S est une matrice de zéros 
-# avec une forme appropriée diagonale principale s.
 
 import pandas as pd 
 from sklearn.decomposition import TruncatedSVD
