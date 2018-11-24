@@ -1,13 +1,4 @@
 
-# https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-m-explo-acp.pdf
-
-# L'analyse en composantes principales (ACP ou PCA en anglais pour principal component analysis), est une méthode 
-# de la famille de l'analyse des données et plus généralement de la statistique multivariée, 
-# qui consiste à transformer des variables liées entre elles (dites « corrélées » en statistique) 
-# en nouvelles variables décorrélées les unes des autres. Ces nouvelles variables sont nommées 
-# « composantes principales », ou axes principaux. Elle permet au praticien de réduire 
-# le nombre de variables et de rendre l'information moins redondante. 
-
 import pandas as pd
 from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score

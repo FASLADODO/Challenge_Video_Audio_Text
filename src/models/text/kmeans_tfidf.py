@@ -1,13 +1,4 @@
 
-# Le TF-IDF est une méthode de pondération 
-# souvent utilisée en recherche d'information et en particulier dans la fouille de textes. 
-# Cette mesure statistique permet d'évaluer l'importance d'un terme contenu dans un document, 
-# relativement à une collection ou un corpus. Le poids augmente proportionnellement 
-# au nombre d'occurrences du mot dans le document. Il varie également en fonction 
-# de la fréquence du mot dans le corpus. Des variantes de la formule originale 
-# sont souvent utilisées dans des moteurs de recherche pour apprécier la pertinence 
-# d'un document en fonction des critères de recherche de l'utilisateur. 
-
 
 """ 
 Kmeans : Le partitionnement en k-moyennes (ou k-means en anglais) est une méthode de partitionnement 

@@ -1,10 +1,4 @@
 
-# https://fr.wikipedia.org/wiki/Analyse_discriminante_lin%C3%A9aire
-# En statistique, l’analyse discriminante linéaire ou ADL (en anglais, 
-# linear discriminant analysis ou LDA) fait partie des techniques d’analyse discriminante prédictive. 
-# Il s’agit d’expliquer et de prédire l’appartenance d’un individu à une classe (groupe) prédéfinie 
-# à partir de ses caractéristiques mesurées à l’aide de variables prédictives. 
-
 
 from plotly.offline import download_plotlyjs, plot, iplot
 import pandas as pd

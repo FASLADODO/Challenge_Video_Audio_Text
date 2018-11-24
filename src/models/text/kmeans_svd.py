@@ -1,9 +1,4 @@
 
-# décomposition en valeur singulière
-# La décomposition en valeurs singulières, ou SVD, est une méthode de décomposition 
-# matricielle permettant de réduire une matrice en ses parties constituantes 
-# afin de simplifier certains calculs ultérieurs.
-
 
 from plotly.offline import download_plotlyjs, plot, iplot
 import pandas as pd

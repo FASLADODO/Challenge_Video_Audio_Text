@@ -1,11 +1,5 @@
 
 
-# https://www.math.univ-toulouse.fr/~besse/Wikistat/pdf/st-m-explo-nmf.pdf
-# Trouvez deux matrices non négatives (W, H) dont le produit se rapproche de la matrice X non négative. 
-# Cette factorisation peut être utilisée par exemple pour la réduction de la dimensionnalité, la séparation 
-# de source ou l'extraction de sujets.
-
-
 from plotly.offline import download_plotlyjs, plot, iplot
 import pandas as pd
 from sklearn.cluster import KMeans
