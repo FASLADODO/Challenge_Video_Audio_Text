@@ -7,10 +7,12 @@ from nltk.corpus import stopwords
 from sklearn.cluster import KMeans
 import plotly.graph_objs as go
 from plotly.offline import download_plotlyjs, plot, iplot
-from sklearn.metrics import silhouette_score
+from sklearn.metrics import silhouette_score 
+from sklearn.manifold import TSNE
 
 
-def best_k(X, range_min=20, verbose=True):
+
+#def best_k(X, range_min=20, verbose=True):
 
     if range_min < 2:
         raise ValueError('range_min is less than 2')
@@ -69,7 +71,7 @@ if __name__ == '__main__':
                     ';', '(', ')', '[', ']', '{', '}','-'])
 
 
-    data = pd.read_csv('features/text/sequence_text.csv', sep='§')
+    data = pd.read_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/sequence_text.csv', sep='§')
 
     data = data.groupby(['Sequence'])['Text'].sum()
     data = data.reset_index()
@@ -78,7 +80,7 @@ if __name__ == '__main__':
         lambda x: ' '.join([i for i in word_tokenize(x) if i not in stop]))
 
     # data = pd.concat([data,pd.read_csv('data/external/corpus_wiki_300.csv', sep='§')],axis = 0)
-    external = pd.read_csv('data/external/corpus_wiki_300.csv', sep='§')
+    external = pd.read_csv('/home/mickael/Documents/Challenge_Video_Audio_Text/data/external/corpus_wiki_300.csv', sep='§')
     external['Sequence'] = 'Augmentation'
     data = pd.concat([data,external], axis =0)
 
@@ -93,7 +95,7 @@ if __name__ == '__main__':
     lda = lda.add_prefix(f'LDA_')
     del tfidf
 
-    pca = PCA(n_components=2)
+    pca = TSNE(n_components=2)
     lda = pd.DataFrame(pca.fit_transform(lda))
     lda = lda.add_prefix(f'LDA_')
 
@@ -125,4 +127,4 @@ if __name__ == '__main__':
 
     plot_cluster(lda[['LDA_0', 'LDA_1']].values, data['Sequence'],
                 cluster,
-f'result/plot_cluster__{5}_lda22.html')
+f'/home/mickael/Documents/Challenge_Video_Audio_Text/result/plot_cluster__{5}_lda22_TSNE.html')

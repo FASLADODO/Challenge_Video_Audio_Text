@@ -12,6 +12,8 @@
 
 import pandas as pd
 from sklearn.decomposition import LatentDirichletAllocation
+from sklearn.manifold import TSNE
+
 
 N_COMPONENTS = 5
 
@@ -20,5 +22,5 @@ lda = LatentDirichletAllocation(n_components=N_COMPONENTS, max_iter=5,random_sta
 lda = pd.DataFrame(lda.fit_transform(data.drop(['Sequence'],axis='columns')))
 lda = lda.add_prefix(f'LDA_')
 lda = pd.concat([data['Sequence'],lda],axis='columns')
-lda.to_csv(f'/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/lda_tfidf_{N_COMPONENTS}.csv',index=False,sep='§')
+lda.to_csv(f'/home/mickael/Documents/Challenge_Video_Audio_Text/features/text/lda_tfidf_{N_COMPONENTS}_TSNE.csv',index=False,sep='§')
 
