@@ -7,7 +7,7 @@ from sklearn.preprocessing import normalize
 
 path_csv = 'features/merge/'
 
-
+# Chargement des données textes 
 emotion = pd.read_csv(path_csv + 'emotion_doc.csv', sep='§', index_col='Sequence', engine='python')
 nmf = pd.read_csv(path_csv + 'nmf_tfidf_5.csv', sep='§', index_col='Sequence', engine='python')
 
@@ -15,7 +15,7 @@ text = pd.merge(emotion, nmf, right_index=True, left_index=True)
 text_norm = pd.DataFrame(normalize(text), index=text.index, columns=text.columns)
 print(text_norm.head(1))
 
-
+# Chargement des données audio
 audio1 = pd.read_csv(path_csv + 'locutors.csv', sep='§', index_col='Sequence', engine='python')
 audio2 = pd.read_csv(path_csv + 'audio_nrj_f0.csv', sep='§', index_col='Sequence', engine='python')
 audio2 = audio2.drop([col for col in audio2.columns if 'skew' in col or 'kurt' in col], axis=1)
@@ -25,7 +25,7 @@ audio_norm = pd.DataFrame(normalize(audio), index=audio.index, columns=audio.col
 print(audio_norm.head(1))
 
 pca = PCA(n_components=50)
-
+# Chargement des données video 
 video1 = pd.read_csv(path_csv + 'df_histo.csv', sep='§', index_col=0, engine='python')
 video1.index = [idx[:7] for idx in video1.index]
 video2 = pd.read_csv(path_csv + 'df_cuts.csv', sep='§', index_col=0, engine='python')
@@ -41,6 +41,7 @@ print(sum(pca.explained_variance_ratio_))
 
 path = 'result/merge/'
 
+#Fusion des modalités
 audio_video = pd.merge(video_norm, audio_norm, right_index=True, left_index=True)
 clustering(audio_video, path + 'audio_video.html', nb_cluster=1)
 

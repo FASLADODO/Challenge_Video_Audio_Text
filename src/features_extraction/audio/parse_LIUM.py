@@ -5,6 +5,17 @@ import re
 import matplotlib.pyplot as plt
 
 def create_dict_LIUM(files):
+    '''
+    Parsing des fichiers .seg créés par l'outil de segmentation de LIUM 
+    
+    Arguments:
+        files {list} -- Liste contenant les noms (chemins) des fichiers 
+                        générés par l'executable 
+    
+    Returns:
+        [dict] -- Dictionnaire contenant les données similaires à celles 
+                  contenues dans les fichiers .seg 
+    '''
 
     dict_caract = {}
 
@@ -28,6 +39,19 @@ def create_dict_LIUM(files):
     return dict_caract
 
 def features_LIUM(path_segmentation):
+    '''
+    Fonction permettant d'extriare le nombre de locuteurs différents
+    ainsi que le ratio hommes / femmes à partir de fichier .seg générés
+    par l'outil de segmentation de LIUM
+    
+    Arguments:
+        path_segmentation {str} -- dossier où sont stockés les fichiers .seg
+    
+    Returns:
+        [pandas DataFrame] -- Un DataFrame avec en index le nom de la séquence
+         et une colonne avec le nombre de locuteurs détectés et une autre avec
+         le ratio hommes / femmes
+    '''
 
     files = sorted([path_segmentation + file for file in os.listdir(path_segmentation) if file.split('.')[-1] == 'seg'])
     dict_lium = create_dict_LIUM(files)

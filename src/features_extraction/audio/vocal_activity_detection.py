@@ -9,19 +9,49 @@ from scipy.signal import filtfilt, butter
 from scipy.stats import skew, kurtosis
 
 def HOS(X):
-    try:
-        mean = np.mean(X)
-        std = np.std(X)
-        skewness = skew(X)
-        kurt = kurtosis(X)
-    except:
-        print(X)
+    '''
+    Calcul de statistiques basiques sur une liste de données
+    
+    Arguments:
+        X {list ou vecteur numpy} -- Vecteur de données
+    
+    Returns:
+        [tuple] -- Dans lórdre : La moyenne, l'écart type,
+         et les moments d'ordres 3 et 4
+    '''
+
+    mean = np.mean(X)
+    std = np.std(X)
+    skewness = skew(X)
+    kurt = kurtosis(X)
+
     return mean, std, skewness, kurt
 
 def gaussian(x, mu, sig):
         return 1./(np.sqrt(2.*np.pi)*sig)*np.exp(-np.power((x - mu)/sig, 2.)/2)
 
 def VAD(nrj, time_nrj, plot=False):
+    '''
+    Détecteru d'activité vocale à partir de l'énergie d'un fichier audio
+    
+    Arguments:
+        nrj {[numpy array]} -- liste de points de l'énergie d'un fichier audio
+        time_nrj {[list] (même taille que nrj)} -- liste des valeurs temporelles
+                                                associées à la liste nrj 
+    
+    Keyword Arguments:
+        plot {bool} -- Mettre True pour avoir l'affichage des différentes 
+        étapes pour calculer les zones de paroles (default: {False})
+    
+    Returns:
+        [numpy array] -- Tableau des valeurs de l'énergie en remplaçant
+         les valeurs en dehores des zones de paroles par des np.NaN
+
+        [list] -- Une liste des temps des zones de paroles pour laquelle
+         chaque valeur contient une sous liste avec 2 valeurs, la première
+         étant le début de la zone de parole et la deuxième la fin (valeurs
+         calculées en fonction de time_nrj)
+    '''
 
     if type(nrj) == list:
         nrj = np.array(nrj)

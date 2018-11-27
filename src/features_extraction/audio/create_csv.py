@@ -35,8 +35,6 @@ for filename in tqdm(files):
     step_len = 2048
     nrj, time_nrj = np.array(log_energie(sig, sr, win=win_len, step=step_len))
     
-    # plt.plot(time_nrj, nrj)
-    # plt.show()
 
     b, a = butter(3, 0.15)
     nrj_bas = filtfilt(b, a, nrj)
@@ -63,11 +61,8 @@ for filename in tqdm(files):
                             }
 
 df = pd.DataFrame.from_dict(dict_features, orient='index')
-# df = pd.merge(df, features_LIUM('features/audio/LIUM_segmentation/'), left_index=True, right_index=True)
 
 df.to_csv('features/audio/csv/audio_nrj_f0.csv', sep='§', index_label='Sequence')
-
 df.head(5)
-# y = pd.read_csv('data/external/Annotations.csv', sep='§', engine='python')
-# X_train, X_test, y_train, y_test = train_test_split(df, y, test_size=0.33, random_state=42)
-
+df = pd.merge(df, features_LIUM('features/audio/LIUM_segmentation/'), left_index=True, right_index=True)
+df.to_csv('features/audio/csv/audio_all.csv', sep='§', index_label='Sequence')

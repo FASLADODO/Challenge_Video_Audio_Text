@@ -6,19 +6,17 @@ import pandas as pd
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import normalize
 
-# def best_k(X, range_min=20):
+def best_k(X, range_min=20):
 
-#     if range_min < 1:
-#         raise ValueError('range_min is less than 1')
-#     score = []
-#     for i, k in enumerate(range(2, range_min)):
+    score = []
+    for i, k in enumerate(range(2, range_min)):
 
-#         model = KMeans(n_clusters=k, random_state=42, n_init=30)
-#         score.append(silhouette_score(X, model.fit_predict(X)))
+        model = KMeans(n_clusters=k, random_state=42, n_init=30)
+        score.append(silhouette_score(X, model.fit_predict(X)))
         
-#         print(f'Le score pour k={k} est : {score[i]:.2f}')
+        print(f'Le score pour k={k} est : {score[i]:.2f}')
 
-#     return range(2, range_min)[score.index(max(score))]
+    return range(2, range_min)[score.index(max(score))]
 
 def clustering(df, file_out, reduce_pca=None, nb_cluster=2):
 
